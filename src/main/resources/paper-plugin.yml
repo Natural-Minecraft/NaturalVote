@@ -1,0 +1,8 @@
+name: NaturalVote
+version: '1.0-SNAPSHOT'
+main: id.naturalsmp.naturalVote.NaturalVote
+api-version: '1.21'
+commands:
+  vote:
+    description: "Perintah utama untuk NaturalVote plugin"
+    aliases: [naturalvote]

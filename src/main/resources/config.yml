@@ -1,0 +1,40 @@
+# NaturalVote Configuration
+
+# Prefix for all plugin messages
+prefix: "&8[&aNaturalVote&8] "
+
+# Messages configuration
+messages:
+  no_permission: "&cAnda tidak memiliki izin untuk menggunakan perintah ini!"
+  reload_success: "&aKonfigurasi berhasil dimuat ulang!"
+  player_only: "&cPerintah ini hanya dapat dilakukan oleh pemain!"
+  help_header: "&8&m--------&r &a&lNaturalVote Help &8&m--------"
+  help_gui: "&a/vote gui &8- &7Membuka menu vote"
+  help_party: "&a/vote party &8- &7Memicu (trigger) event vote party secara manual"
+  help_reload: "&a/vote reload &8- &7Memuat ulang konfigurasi plugin"
+  help_footer: "&8&m----------------------------------"
+
+# GUI Settings
+gui:
+  title: "&8▶ &aMenu Vote"
+  size: 27
+  vote_slot: 13
+  vote_item:
+    material: "FIREWORK_ROCKET"
+    name: "&a&l🌟 Vote Server Kami! 🌟"
+    lore:
+      - "&8&m------------------------"
+      - "&7Dapatkan hadiah menarik"
+      - "&7dengan cara melakukan vote"
+      - "&7setiap harinya!"
+      - ""
+      - "&e▶ Klik untuk melihat Link Vote!"
+      - "&8&m------------------------"
+    sound: "UI_BUTTON_CLICK"
+    click_message:
+      - ""
+      - " &a&l&nLINK VOTE SERVER"
+      - " &e► Link 1: &fhttps://minecraftservers.org/vote/contoh"
+      - " &e► Link 2: &fhttps://minecraft-mp.com/server/contoh/vote/"
+      - " &7(Silakan klik link di atas dari chat Anda)"
+      - ""
