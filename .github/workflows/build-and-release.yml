@@ -28,7 +28,7 @@ jobs:
 
       - name: Install NuVotifier API
         run: |
-          wget -q https://github.com/NuVotifier/NuVotifier/releases/download/2.7.3/nuvotifier-2.7.3.jar -O nuvotifier.jar
+          wget -q https://github.com/NuVotifier/NuVotifier/releases/download/v2.7.3/nuvotifier.jar -O nuvotifier.jar
           mvn install:install-file \
             -Dfile=nuvotifier.jar \
             -DgroupId=com.vexsoftware \
