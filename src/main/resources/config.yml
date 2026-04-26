@@ -13,7 +13,14 @@ messages:
   help_party: "&a/vote party &8- &7Memicu (trigger) event vote party secara manual"
   help_reload: "&a/vote reload &8- &7Memuat ulang konfigurasi plugin"
   help_footer: "&8&m----------------------------------"
+  vote_broadcast: "&a&lVOTE &8| &e%player% &7baru saja melakukan vote di &e%service%&7! &8(&a/vote&8)"
+  vote_offline_reminder: "&a&lVOTE &8| &7Terima kasih telah vote saat offline! Anda mendapatkan hadiahnya sekarang."
 
+# Reward Settings
+rewards:
+  commands:
+    - "give %player% diamond 1"
+    - "eco give %player% 500"
 # GUI Settings
 gui:
   title: "&8▶ &aMenu Vote"

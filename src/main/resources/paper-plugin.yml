@@ -6,3 +6,8 @@ commands:
   vote:
     description: "Perintah utama untuk NaturalVote plugin"
     aliases: [naturalvote]
+dependencies:
+  server:
+    Votifier:
+      load: BEFORE
+      required: true
