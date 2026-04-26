@@ -42,7 +42,10 @@ public class VoteCommand implements CommandExecutor, TabCompleter {
                     return true;
                 }
                 plugin.reloadConfig();
-                sender.sendMessage(color(plugin.getConfig().getString("messages.reload_success", "&aConfig reloaded!")));
+                sender.sendMessage(color(
+                    plugin.getConfig().getString("prefix", "&8[&aNaturalVote&8] ")
+                    + "&aKonfigurasi berhasil dimuat ulang!"
+                ));
                 break;
             case "gui":
                 if (!(sender instanceof Player)) {
