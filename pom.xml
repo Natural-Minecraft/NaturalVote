@@ -69,9 +69,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.NuVotifier.NuVotifier</groupId>
-            <artifactId>nuvotifier-api</artifactId>
-            <version>2.7.1</version>
+            <groupId>com.vexsoftware</groupId>
+            <artifactId>nuvotifier-universal</artifactId>
+            <version>2.7.3</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
