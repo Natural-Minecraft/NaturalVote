@@ -26,7 +26,17 @@ public class VoteCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
+        if (args.length == 0) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage(color(plugin.getConfig().getString("messages.player_only", "&cPlayer only.")));
+                return true;
+            }
+            Player p = (Player) sender;
+            new id.naturalsmp.naturalVote.gui.VoteGUI(plugin, p).open(p);
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("help")) {
             if (!sender.hasPermission("naturalvote.admin")) {
                 sender.sendMessage(color(plugin.getConfig().getString("messages.no_permission", "&cNo permission.")));
                 return true;
@@ -48,6 +58,20 @@ public class VoteCommand implements CommandExecutor, TabCompleter {
                 ));
                 break;
             case "gui":
+                if (args.length == 2) {
+                    if (!sender.hasPermission("naturalvote.admin")) {
+                        sender.sendMessage(color(plugin.getConfig().getString("messages.no_permission", "&cNo permission.")));
+                        return true;
+                    }
+                    Player target = org.bukkit.Bukkit.getPlayer(args[1]);
+                    if (target == null) {
+                        sender.sendMessage(color("&cPlayer not found."));
+                        return true;
+                    }
+                    new id.naturalsmp.naturalVote.gui.VoteGUI(plugin, target).open(target);
+                    sender.sendMessage(color("&aOpened Vote GUI for " + target.getName()));
+                    return true;
+                }
                 if (!(sender instanceof Player)) {
                     sender.sendMessage(color(plugin.getConfig().getString("messages.player_only", "&cPlayer only.")));
                     return true;

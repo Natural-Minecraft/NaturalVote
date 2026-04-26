@@ -40,24 +40,27 @@ public class VoteGUI implements InventoryHolder {
         }
 
         // Add Vote Item in the middle
-        int centerSlot = plugin.getConfig().getInt("gui.vote_slot", 13);
+        int centerSlot = 13;
         Material mat = Material.matchMaterial(plugin.getConfig().getString("gui.vote_item.material", "FIREWORK_ROCKET"));
         if (mat == null) mat = Material.FIREWORK_ROCKET;
         
         String name = plugin.getConfig().getString("gui.vote_item.name", "&a&lVote Server Kami!");
-        List<String> loreParams = plugin.getConfig().getStringList("gui.vote_item.lore");
         
-        ItemStack voteItem = createItem(mat, name, loreParams.toArray(new String[0]));
+        ItemStack voteItem = createItem(mat, name, "&7Klik untuk mendapatkan link vote!", "", "&fhttps://vote.naturalsmp.net/");
         inventory.setItem(centerSlot, voteItem);
 
-        // Add Points info
+        // Add Points info (Bottom Left - slot 18)
         int points = plugin.getDataManager().getPoints(player.getName());
         ItemStack pointsItem = createItem(Material.SUNFLOWER, "&e&lPoin Kamu: &a" + points, "&7Kumpulkan poin dengan", "&7melakukan vote setiap hari!");
-        inventory.setItem(4, pointsItem);
+        inventory.setItem(18, pointsItem);
 
-        // Add Shop Button
+        // Add Vote Shop Button (Bottom Middle - slot 22)
         ItemStack shopItem = createItem(Material.EMERALD, "&a&l🛒 Buka Vote Shop", "&7Tukarkan Poin Vote kamu", "&7dengan hadiah menarik!");
         inventory.setItem(22, shopItem);
+
+        // Add Bloodmoon Shop Button (Bottom Right - slot 26)
+        ItemStack bmShopItem = createItem(Material.GOLD_NUGGET, "&c&l☠ Bloodmoon Shop", "&7Tukarkan Bloodmoon Coin", "&7dengan item langka!");
+        inventory.setItem(26, bmShopItem);
     }
 
     private ItemStack createItem(Material material, String name, String... lore) {

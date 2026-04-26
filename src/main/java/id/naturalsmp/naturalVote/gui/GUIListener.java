@@ -30,7 +30,7 @@ public class GUIListener implements Listener {
             int slot = event.getSlot();
             int voteSlot = plugin.getConfig().getInt("gui.vote_slot", 13);
             
-            if (slot == voteSlot) {
+            if (slot == 13) {
                 // Dimainkan sound
                 String soundData = plugin.getConfig().getString("gui.vote_item.sound", "UI_BUTTON_CLICK");
                 try {
@@ -51,6 +51,10 @@ public class GUIListener implements Listener {
                 // Open Shop
                 player.closeInventory();
                 new VoteShopGUI(plugin, player).open();
+            } else if (slot == 26) {
+                // Open Bloodmoon Shop
+                player.closeInventory();
+                player.performCommand("bmshop");
             }
         } else if (event.getInventory().getHolder() instanceof VoteShopGUI) {
             event.setCancelled(true);
