@@ -18,12 +18,12 @@ messages:
 
 # Points Settings
 points:
-  per_vote: 1
+  per_vote: 100
 
 # Reward Settings (Optional immediate rewards, keep empty to only give points)
 rewards:
   commands:
-    - "eco give %player% 100"
+    - "crate key give %player% vote 1"
 
 # Vote Shop Settings
 shop:
@@ -32,34 +32,34 @@ shop:
   insufficient_points: "&c&l✖ &7Poin kamu tidak mencukupi!"
   buy_success: "&a&l✔ &7Berhasil membeli &e%item% &7seharga &a%cost% &7poin!"
   items:
-    diamond_pack:
+    vote_key_pack:
       slot: 11
-      material: "DIAMOND"
-      name: "&b💎 10x Diamond"
+      material: "TRIPWIRE_HOOK"
+      name: "&a🔑 2x Vote Key"
       lore:
         - "&8&m-------------------"
-        - "&7Paket spesial berisi"
-        - "&710 buah berlian."
+        - "&7Gunakan kunci ini di"
+        - "&7Crates untuk hadiah acak!"
         - ""
-        - "&fHarga: &e5 Poin"
+        - "&fHarga: &e500 Poin"
         - "&8&m-------------------"
-      cost: 5
+      cost: 500
       commands:
-        - "give %player% diamond 10"
-    money_pack:
+        - "crate key give %player% vote 2"
+    elite_key_pack:
       slot: 15
-      material: "GOLD_INGOT"
-      name: "&e💰 Uang $5000"
+      material: "NAME_TAG"
+      name: "&d💎 1x Elite Key"
       lore:
         - "&8&m-------------------"
-        - "&7Tambahan uang saku"
-        - "&7sebesar $5000."
+        - "&7Kunci Elite untuk peti"
+        - "&7tingkat tinggi dan langka!"
         - ""
-        - "&fHarga: &e3 Poin"
+        - "&fHarga: &e1000 Poin"
         - "&8&m-------------------"
-      cost: 3
+      cost: 1000
       commands:
-        - "eco give %player% 5000"
+        - "crate key give %player% elite 1"
 
 # GUI Settings
 gui:

@@ -5,7 +5,7 @@ api-version: '1.21'
 commands:
   vote:
     description: "Perintah utama untuk NaturalVote plugin"
-    aliases: [naturalvote]
+    aliases: [naturalvote, nvote]
 dependencies:
   server:
     Votifier:
