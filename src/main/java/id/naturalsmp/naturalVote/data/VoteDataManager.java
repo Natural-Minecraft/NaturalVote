@@ -70,4 +70,22 @@ public class VoteDataManager {
         dataConfig.set(path, current + 1);
         saveConfig();
     }
+
+    public int getPoints(String playerName) {
+        return dataConfig.getInt("vote_points." + playerName.toLowerCase(), 0);
+    }
+
+    public void addPoints(String playerName, int amount) {
+        String path = "vote_points." + playerName.toLowerCase();
+        int current = dataConfig.getInt(path, 0);
+        dataConfig.set(path, current + amount);
+        saveConfig();
+    }
+
+    public void removePoints(String playerName, int amount) {
+        String path = "vote_points." + playerName.toLowerCase();
+        int current = dataConfig.getInt(path, 0);
+        dataConfig.set(path, Math.max(0, current - amount));
+        saveConfig();
+    }
 }

@@ -16,11 +16,51 @@ messages:
   vote_broadcast: "&a&lVOTE &8| &e%player% &7baru saja melakukan vote di &e%service%&7! &8(&a/vote&8)"
   vote_offline_reminder: "&a&lVOTE &8| &7Terima kasih telah vote saat offline! Anda mendapatkan hadiahnya sekarang."
 
-# Reward Settings
+# Points Settings
+points:
+  per_vote: 1
+
+# Reward Settings (Optional immediate rewards, keep empty to only give points)
 rewards:
   commands:
-    - "give %player% diamond 1"
-    - "eco give %player% 500"
+    - "eco give %player% 100"
+
+# Vote Shop Settings
+shop:
+  title: "&8▶ &aVote Shop"
+  size: 27
+  insufficient_points: "&c&l✖ &7Poin kamu tidak mencukupi!"
+  buy_success: "&a&l✔ &7Berhasil membeli &e%item% &7seharga &a%cost% &7poin!"
+  items:
+    diamond_pack:
+      slot: 11
+      material: "DIAMOND"
+      name: "&b💎 10x Diamond"
+      lore:
+        - "&8&m-------------------"
+        - "&7Paket spesial berisi"
+        - "&710 buah berlian."
+        - ""
+        - "&fHarga: &e5 Poin"
+        - "&8&m-------------------"
+      cost: 5
+      commands:
+        - "give %player% diamond 10"
+    money_pack:
+      slot: 15
+      material: "GOLD_INGOT"
+      name: "&e💰 Uang $5000"
+      lore:
+        - "&8&m-------------------"
+        - "&7Tambahan uang saku"
+        - "&7sebesar $5000."
+        - ""
+        - "&fHarga: &e3 Poin"
+        - "&8&m-------------------"
+      cost: 3
+      commands:
+        - "eco give %player% 5000"
+
 # GUI Settings
 gui:
   title: "&8▶ &aMenu Vote"

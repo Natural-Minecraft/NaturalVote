@@ -50,7 +50,15 @@ public class VoteCommand implements CommandExecutor, TabCompleter {
                     return true;
                 }
                 Player p = (Player) sender;
-                new id.naturalsmp.naturalVote.gui.VoteGUI(plugin).open(p);
+                new id.naturalsmp.naturalVote.gui.VoteGUI(plugin, p).open(p);
+                break;
+            case "shop":
+                if (!(sender instanceof Player)) {
+                    sender.sendMessage(color(plugin.getConfig().getString("messages.player_only", "&cPlayer only.")));
+                    return true;
+                }
+                Player pShop = (Player) sender;
+                new id.naturalsmp.naturalVote.gui.VoteShopGUI(plugin, pShop).open();
                 break;
             case "party":
                 if (!sender.hasPermission("naturalvote.admin")) {
@@ -71,6 +79,7 @@ public class VoteCommand implements CommandExecutor, TabCompleter {
     private void sendHelpMessage(CommandSender sender) {
         sender.sendMessage(color(plugin.getConfig().getString("messages.help_header", "&8&m--------&r &a&lNaturalVote &8&m--------")));
         sender.sendMessage(color(plugin.getConfig().getString("messages.help_gui", "&a/vote gui &8- &7Buka GUI")));
+        sender.sendMessage(color("&a/vote shop &8- &7Buka Vote Shop"));
         sender.sendMessage(color(plugin.getConfig().getString("messages.help_party", "&a/vote party &8- &7Trigger vote party")));
         sender.sendMessage(color(plugin.getConfig().getString("messages.help_reload", "&a/vote reload &8- &7Reload plugin")));
         sender.sendMessage(color(plugin.getConfig().getString("messages.help_footer", "&8&m------------------------")));
@@ -88,6 +97,7 @@ public class VoteCommand implements CommandExecutor, TabCompleter {
             }
             if (sender instanceof Player) {
                 completions.add("gui");
+                completions.add("shop");
             }
 
             // Filter completions based on what the user has typed so far

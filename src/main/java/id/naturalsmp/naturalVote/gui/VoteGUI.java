@@ -19,20 +19,20 @@ public class VoteGUI implements InventoryHolder {
     private final Inventory inventory;
     private final NaturalVote plugin;
 
-    public VoteGUI(NaturalVote plugin) {
+    public VoteGUI(NaturalVote plugin, Player player) {
         this.plugin = plugin;
-        String title = color(plugin.getConfig().getString("gui.title", "&8Menu Vote"));
+        String title = color(plugin.getConfig().getString("gui.title", "&8▶ &aMenu Vote"));
         int size = plugin.getConfig().getInt("gui.size", 27);
         
         this.inventory = Bukkit.createInventory(this, size, title);
-        initializeItems();
+        initializeItems(player);
     }
 
     private String color(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
 
-    private void initializeItems() {
+    private void initializeItems(Player player) {
         // Fill border with glass panes
         ItemStack filler = createItem(Material.BLACK_STAINED_GLASS_PANE, " ");
         for (int i = 0; i < inventory.getSize(); i++) {
@@ -49,6 +49,15 @@ public class VoteGUI implements InventoryHolder {
         
         ItemStack voteItem = createItem(mat, name, loreParams.toArray(new String[0]));
         inventory.setItem(centerSlot, voteItem);
+
+        // Add Points info
+        int points = plugin.getDataManager().getPoints(player.getName());
+        ItemStack pointsItem = createItem(Material.SUNFLOWER, "&e&lPoin Kamu: &a" + points, "&7Kumpulkan poin dengan", "&7melakukan vote setiap hari!");
+        inventory.setItem(4, pointsItem);
+
+        // Add Shop Button
+        ItemStack shopItem = createItem(Material.EMERALD, "&a&l🛒 Buka Vote Shop", "&7Tukarkan Poin Vote kamu", "&7dengan hadiah menarik!");
+        inventory.setItem(22, shopItem);
     }
 
     private ItemStack createItem(Material material, String name, String... lore) {

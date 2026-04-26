@@ -24,6 +24,11 @@ public class JoinListener implements Listener {
 
         int offlineVotes = plugin.getDataManager().getOfflineVotes(username);
         if (offlineVotes > 0) {
+            int pointsPerVote = plugin.getConfig().getInt("points.per_vote", 1);
+            int totalPoints = offlineVotes * pointsPerVote;
+            
+            plugin.getDataManager().addPoints(username, totalPoints);
+            
             // Give rewards for each offline vote
             for (int i = 0; i < offlineVotes; i++) {
                 voteListener.giveRewards(player);

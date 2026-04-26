@@ -35,8 +35,12 @@ public class VoteListener implements Listener {
         Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', broadcastMsg));
 
         Player player = Bukkit.getPlayerExact(username);
+        
+        int points = plugin.getConfig().getInt("points.per_vote", 1);
+        
         if (player != null && player.isOnline()) {
-            // Player is online, give rewards
+            // Player is online, give rewards & points
+            plugin.getDataManager().addPoints(username, points);
             giveRewards(player);
         } else {
             // Player is offline, save to queue
