@@ -48,14 +48,14 @@ public final class NaturalVote extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinListener(this, voteListener), this);
         org.bukkit.Bukkit.getConsoleSender().sendMessage(
                 org.bukkit.ChatColor.translateAlternateColorCodes('&',
-                    "\n&a===============\n" +
+                    "\n&a================================================================================\n" +
                     "&a _   _       _                  _     &e __     __    _\n" +
                     "&a| \\ | | __ _| |_ _   _ _ __ __ _| |   &e \\ \\   / /__ | |_ ___\n" +
                     "&a|  \\| |/ _` | __| | | | '__/ _` | |   &e  \\ \\ / / _ \\| __/ _ \\\n" +
                     "&a| |\\  | (_| | |_| |_| | | | (_| | |   &e   \\ V / (_) | ||  __/\n" +
                     "&a|_| \\_|\\__,_|\\__|\\__,_|_|       \\_/ \\_&e__/ \\__\\___|\n" +
                     "       >> &eNaturalVote v" + getDescription().getVersion() + " Enabled! <<\n" +
-                    "&a===============\n"
+                    "&a================================================================================\n"
                 )
         );
     }
